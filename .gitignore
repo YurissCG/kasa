@@ -12,6 +12,14 @@
 
 # testing
 /coverage
+/test-results
+/playwright-report
+/blob-report
+/playwright/.cache
+
+# fotos brutas baixadas do Instagram (fonte, não vai pro site).
+# O que é usado está otimizado em /public/images.
+/img
 
 # next.js
 /.next/

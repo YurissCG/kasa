@@ -1,11 +1,14 @@
+import Image from "next/image";
 import { Section } from "@/components/ui/Section";
 import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
 import { MandalaDivider } from "@/components/ui/MandalaDivider";
+import { serviceShowcasePhotos } from "@/lib/service-images";
 import type { ServiceCategory } from "@/data/services";
 import { buildWhatsAppLink, defaultBookingMessage } from "@/lib/whatsapp";
 
 export function ServicePageTemplate({ service }: { service: ServiceCategory }) {
   const whatsappHref = buildWhatsAppLink(defaultBookingMessage(service.label));
+  const photo = serviceShowcasePhotos[service.slug];
 
   return (
     <>
@@ -31,7 +34,18 @@ export function ServicePageTemplate({ service }: { service: ServiceCategory }) {
 
       <Section>
         <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
-          <PlaceholderImage label={`Trabalho real de ${service.label}`} aspect="portrait" />
+          {photo ? (
+            <Image
+              src={photo.src}
+              alt={photo.alt}
+              width={photo.width}
+              height={photo.height}
+              sizes="(min-width: 1024px) 560px, 100vw"
+              className="aspect-3/4 w-full rounded-2xl object-cover"
+            />
+          ) : (
+            <PlaceholderImage label={`Trabalho real de ${service.label}`} aspect="portrait" />
+          )}
           <div>
             <h2 className="font-display text-2xl text-charcoal">
               A avaliação é o primeiro passo, sempre.

@@ -1,14 +1,29 @@
 import Link from "next/link";
+import Image from "next/image";
 import { PlaceholderImage } from "./PlaceholderImage";
+import { serviceCardPhotos } from "@/lib/service-images";
 import type { ServiceCategory } from "@/data/services";
 
 export function ServiceCard({ service }: { service: ServiceCategory }) {
+  const photo = serviceCardPhotos[service.slug];
+
   return (
     <Link
       href={`/${service.slug}`}
       className="group block overflow-hidden rounded-2xl border border-stone-dark/70 bg-ivory transition-shadow hover:shadow-[0_10px_30px_rgba(38,35,29,0.10)]"
     >
-      <PlaceholderImage label={`Foto — ${service.label}`} aspect="landscape" className="rounded-none rounded-t-2xl border-0" />
+      {photo ? (
+        <Image
+          src={photo.src}
+          alt={photo.alt}
+          width={photo.width}
+          height={photo.height}
+          sizes="(min-width: 1024px) 264px, (min-width: 640px) 50vw, 100vw"
+          className="aspect-4/3 w-full object-cover"
+        />
+      ) : (
+        <PlaceholderImage label={`Foto — ${service.label}`} aspect="landscape" className="rounded-none rounded-t-2xl border-0" />
+      )}
       <div className="p-5">
         <h3 className="font-display text-lg text-charcoal">{service.label}</h3>
         <p className="mt-1 text-sm text-charcoal-soft">{service.heroLine}</p>
