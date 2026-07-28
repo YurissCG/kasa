@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+:root {
+  --color-ivory: #f7f3ec;
+  --color-stone: #e6dec9;
+  --color-stone-dark: #cfc3a3;
+  --color-gold: #c9a227;
+  --color-gold-light: #e0be5c;
+  --color-bronze: #8a6d2f;
+  --color-olive: #4b5c41;
+  --color-charcoal: #26231d;
+  --color-charcoal-soft: #5b5646;
+}
+
+@theme inline {
+  --color-ivory: var(--color-ivory);
+  --color-stone: var(--color-stone);
+  --color-stone-dark: var(--color-stone-dark);
+  --color-gold: var(--color-gold);
+  --color-gold-light: var(--color-gold-light);
+  --color-bronze: var(--color-bronze);
+  --color-olive: var(--color-olive);
+  --color-charcoal: var(--color-charcoal);
+  --color-charcoal-soft: var(--color-charcoal-soft);
+
+  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-inter);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-ivory);
+  color: var(--color-charcoal);
+  font-family: var(--font-sans);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
