@@ -1,6 +1,5 @@
 import { fullAddress, siteConfig } from "@/lib/site-config";
 import { Section } from "@/components/ui/Section";
-import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
 
 export function LocationSection() {
   const mapsQuery = encodeURIComponent(fullAddress);
@@ -34,7 +33,15 @@ export function LocationSection() {
           </a>
         </div>
 
-        <PlaceholderImage label="Mapa ou foto da fachada" aspect="landscape" />
+        <div className="aspect-4/3 overflow-hidden rounded-2xl border border-stone-dark">
+          <iframe
+            title={`Mapa de localização — ${fullAddress}`}
+            src={`https://maps.google.com/maps?q=${mapsQuery}&output=embed`}
+            className="h-full w-full"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </div>
       </div>
     </Section>
   );
