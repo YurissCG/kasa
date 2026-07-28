@@ -20,7 +20,7 @@ export default function ContatoPage() {
           Fale direto com a recepção, sem formulário para preencher.
         </h1>
         <p className="mt-4 max-w-xl text-base text-charcoal-soft">
-          A forma mais rápida de confirmar horário e valor é pelo WhatsApp — a mensagem
+          A forma mais rápida de confirmar horário e valor é pelo WhatsApp. A mensagem
           já sai pronta, você só ajusta se quiser.
         </p>
         <a

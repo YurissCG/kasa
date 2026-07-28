@@ -15,7 +15,7 @@ export const siteConfig = {
     city: "Belo Horizonte",
     state: "MG",
   },
-  // Não confirmado no Instagram — preencher com o horário real antes de publicar.
+  // Não confirmado no Instagram. Preencher com o horário real antes de publicar.
   hours: [
     { day: "Segunda a sexta", time: "A confirmar" },
     { day: "Sábado", time: "A confirmar" },

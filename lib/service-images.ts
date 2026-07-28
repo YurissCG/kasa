@@ -1,7 +1,7 @@
 export type ServicePhoto = {
   src: string;
   alt: string;
-  /** Dimensões do arquivo em /public — usadas para reservar espaço e evitar CLS. */
+  /** Dimensões do arquivo em /public, usadas para reservar espaço e evitar CLS. */
   width: number;
   height: number;
 };
@@ -64,5 +64,5 @@ export const serviceShowcasePhotos: Record<string, ServicePhoto> = {
     height: 1000,
   },
   // "massagem-estetica" fica de fora: não há foto real de massagem ou de
-  // estética corporal no acervo — o slot segue com PlaceholderImage.
+  // estética corporal no acervo, então o slot segue com PlaceholderImage.
 };

@@ -4,7 +4,7 @@ type MandalaPatternProps = {
 
 /**
  * Versão em escala grande do motivo floral do logo, usada como textura
- * de fundo no hero — resolve a necessidade de uma imagem de banner sem
+ * de fundo no hero. Resolve a necessidade de uma imagem de banner sem
  * depender de foto nenhuma (evita usar foto de estoque de "um salão
  * genérico" fingindo ser o espaço real da Kasa Beauty).
  */

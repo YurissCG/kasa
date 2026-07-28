@@ -35,7 +35,7 @@ export function LocationSection() {
 
         <div className="aspect-4/3 overflow-hidden rounded-2xl border border-stone-dark">
           <iframe
-            title={`Mapa de localização — ${fullAddress}`}
+            title={`Mapa de localização: ${fullAddress}`}
             src={`https://maps.google.com/maps?q=${mapsQuery}&output=embed`}
             className="h-full w-full"
             loading="lazy"

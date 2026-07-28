@@ -35,7 +35,7 @@ export const serviceCategories: ServiceCategory[] = [
     shortLabel: "Sobrancelha & Cílios",
     heroLine: "Micropigmentação, design e extensão de cílios com avaliação individual antes de qualquer procedimento.",
     intro:
-      "Sobrancelha e olhar pedem precisão — por isso todo procedimento começa com uma avaliação do formato do rosto e do fio natural.",
+      "Sobrancelha e olhar pedem precisão, por isso todo procedimento começa com uma avaliação do formato do rosto e do fio natural.",
     items: [
       { name: "Micropigmentação de sobrancelhas", description: "Técnica fio a fio ou sombreada, definida na avaliação." },
       { name: "Design de sobrancelhas", description: "Correção e manutenção do formato natural." },
@@ -49,7 +49,7 @@ export const serviceCategories: ServiceCategory[] = [
     shortLabel: "Unhas",
     heroLine: "Manicure, pedicure e nail design com o mesmo padrão de acabamento do resto da clínica.",
     intro:
-      "Unhas bem cuidadas fazem parte da mesma experiência de excelência — biossegurança, materiais individuais e acabamento revisado.",
+      "Unhas bem cuidadas fazem parte da mesma experiência de excelência: biossegurança, materiais individuais e acabamento revisado.",
     items: [
       { name: "Manicure e pedicure", description: "Cuidado completo com esterilização de material entre atendimentos." },
       { name: "Nail design", description: "Esmaltação em gel e decoração sob demanda." },
@@ -62,7 +62,7 @@ export const serviceCategories: ServiceCategory[] = [
     shortLabel: "Estética",
     heroLine: "Estética facial e corporal, e massagem, com avaliação antes de indicar qualquer protocolo.",
     intro:
-      "Cada protocolo de estética é indicado depois de uma conversa sobre objetivo e histórico — não existe procedimento padrão para todo mundo.",
+      "Cada protocolo de estética é indicado depois de uma conversa sobre objetivo e histórico. Não existe procedimento padrão para todo mundo.",
     items: [
       { name: "Estética facial", description: "Protocolos definidos após avaliação de pele." },
       { name: "Estética corporal", description: "Procedimentos indicados conforme objetivo e histórico." },

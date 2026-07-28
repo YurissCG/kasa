@@ -52,7 +52,7 @@ export function ServicePageTemplate({ service }: { service: ServiceCategory }) {
             </h2>
             <p className="mt-3 max-w-md text-sm text-charcoal-soft">
               Valores e duração variam de acordo com o que a sua pele, fio ou unha pedem
-              no momento — por isso preferimos confirmar tudo com você antes, pelo WhatsApp.
+              no momento. Por isso preferimos confirmar tudo com você antes, pelo WhatsApp.
             </p>
             <a
               href={whatsappHref}

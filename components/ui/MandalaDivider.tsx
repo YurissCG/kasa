@@ -5,7 +5,7 @@ type MandalaDividerProps = {
 /**
  * Elemento de assinatura da marca: interpretação em linha do motivo
  * floral de 8 pétalas do logo da Kasa Beauty, usado como divisor.
- * Não é o logo em si — é um motivo derivado, leve, para uso repetido.
+ * Não é o logo em si, e sim um motivo derivado, leve, para uso repetido.
  */
 export function MandalaDivider({ className = "" }: MandalaDividerProps) {
   return (

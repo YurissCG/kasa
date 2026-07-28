@@ -23,8 +23,8 @@ const siteUrl = "https://kasabeauty.vercel.app"; // trocar pelo domínio real ao
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${siteConfig.name} — ${siteConfig.address.neighborhood}, ${siteConfig.address.city}`,
-    template: `%s — ${siteConfig.name}`,
+    default: `${siteConfig.name} em ${siteConfig.address.neighborhood}, ${siteConfig.address.city}`,
+    template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.tagline,
   openGraph: {
@@ -64,7 +64,7 @@ export default function RootLayout({
         <WhatsAppFloatingButton />
         <script
           type="application/ld+json"
-          // Schema.org LocalBusiness — ajuda o Google a entender o negócio.
+          // Schema.org LocalBusiness: ajuda o Google a entender o negócio.
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",

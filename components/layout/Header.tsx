@@ -17,7 +17,7 @@ export function Header() {
   const [prevPathname, setPrevPathname] = useState(pathname);
 
   // Fecha o menu ao trocar de rota (evita menu "preso" aberto no mobile).
-  // Ajuste feito durante o render, não em um efeito — recomendação do React
+  // Ajuste feito durante o render, não em um efeito, conforme recomendação do React
   // para "resetar estado quando uma prop muda".
   if (pathname !== prevPathname) {
     setPrevPathname(pathname);

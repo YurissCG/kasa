@@ -22,7 +22,7 @@ export function ServiceCard({ service }: { service: ServiceCategory }) {
           className="aspect-4/3 w-full object-cover"
         />
       ) : (
-        <PlaceholderImage label={`Foto — ${service.label}`} aspect="landscape" className="rounded-none rounded-t-2xl border-0" />
+        <PlaceholderImage label={`Foto de ${service.label}`} aspect="landscape" className="rounded-none rounded-t-2xl border-0" />
       )}
       <div className="p-5">
         <h3 className="font-display text-lg text-charcoal">{service.label}</h3>

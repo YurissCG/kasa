@@ -58,7 +58,7 @@ test.describe("Páginas de serviço", () => {
   }
 });
 
-test.describe("Responsividade — sem quebra de layout", () => {
+test.describe("Responsividade: sem quebra de layout", () => {
   test("página inicial não gera overflow horizontal", async ({ page }) => {
     await page.goto("/");
     const hasOverflow = await page.evaluate(
