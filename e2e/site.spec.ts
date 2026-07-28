@@ -9,7 +9,9 @@ test.describe("Home", () => {
       "excelência que a sua autoestima merece"
     );
 
-    const cta = page.getByRole("link", { name: "Agendar pelo WhatsApp" });
+    // Escopo no <main>: o botão flutuante do WhatsApp tem o mesmo nome
+    // acessível e vive fora dele, no layout.
+    const cta = page.getByRole("main").getByRole("link", { name: "Agendar pelo WhatsApp" });
     await expect(cta).toBeVisible();
     const href = await cta.getAttribute("href");
     expect(href).toContain(`wa.me/${siteConfig.whatsappNumber}`);
@@ -21,15 +23,21 @@ test.describe("Home", () => {
   test("todos os cards de serviço levam para a página certa", async ({ page }) => {
     await page.goto("/");
     for (const service of serviceCategories) {
-      const card = page.getByRole("link", { name: new RegExp(service.label) });
+      // Escopo no <main>: o rodapé repete um link por categoria.
+      const card = page
+        .getByRole("main")
+        .getByRole("link", { name: new RegExp(service.label) });
       await expect(card).toHaveAttribute("href", `/${service.slug}`);
     }
   });
 });
 
 test.describe("Navegação mobile", () => {
-  test("o menu abre, mostra os links e fecha ao navegar", async ({ page, isMobile }) => {
-    test.skip(!isMobile, "Menu hambúrguer só existe no layout mobile");
+  test("o menu abre, mostra os links e fecha ao navegar", async ({ page }) => {
+    // Quem decide é a largura, não o flag isMobile do device: o iPad Mini
+    // reporta isMobile mas tem 768px, e o hambúrguer é md:hidden.
+    const width = page.viewportSize()?.width ?? 0;
+    test.skip(width >= 768, "A partir de md o hambúrguer dá lugar à navegação desktop");
     await page.goto("/");
     const toggle = page.getByRole("button", { name: "Abrir menu" });
     await toggle.click();
@@ -48,12 +56,23 @@ test.describe("Páginas de serviço", () => {
       await expect(page.getByRole("heading", { level: 1 })).toHaveText(service.label);
 
       for (const item of service.items) {
-        await expect(page.getByRole("heading", { name: item.name })).toBeVisible();
+        // exact: sem isso, o item "Massagem" casa também com o h1
+        // "Massagem & Estética", já que o padrão é busca por substring.
+        await expect(
+          page.getByRole("heading", { name: item.name, exact: true })
+        ).toBeVisible();
       }
 
-      const cta = page.getByRole("link", { name: new RegExp(`Agendar ${service.label}`, "i") });
-      const href = await cta.getAttribute("href");
-      expect(href).toContain(encodeURIComponent(service.label));
+      // A página repete o CTA no topo e no fecho, então valida todos:
+      // um deles apontando para o serviço errado passaria despercebido.
+      const ctas = page.getByRole("link", { name: new RegExp(`Agendar ${service.label}`, "i") });
+      const hrefs = await ctas.evaluateAll((els) =>
+        els.map((el) => el.getAttribute("href"))
+      );
+      expect(hrefs.length).toBeGreaterThan(0);
+      for (const href of hrefs) {
+        expect(href).toContain(encodeURIComponent(service.label));
+      }
     });
   }
 });
