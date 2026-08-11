@@ -10,9 +10,13 @@ export function Hero() {
   const whatsappHref = buildWhatsAppLink(defaultBookingMessage());
 
   return (
-    <section className="relative bg-ivory">
+    <section className="relative overflow-hidden bg-ivory">
+      {/* No mobile a foto é uma faixa no topo e o texto vem abaixo; no
+          desktop viram colunas lado a lado. Sobrepor os dois no mobile
+          não funciona: a imagem é retrato e cabe inteira na altura, então
+          o rosto cai justamente atrás do título e fica lavado pelo véu. */}
       <div className="mx-auto grid max-w-[1400px] items-stretch lg:grid-cols-[1fr_0.85fr]">
-        <div className="flex flex-col justify-center px-5 pt-14 pb-12 sm:px-10 lg:py-28 lg:pl-16 xl:pl-24">
+        <div className="row-start-2 flex flex-col justify-start px-5 pt-10 pb-14 sm:px-10 lg:col-start-1 lg:row-start-1 lg:justify-center lg:py-28 lg:pl-16 xl:pl-24">
           <p className="label-eyebrow text-bronze">Belvedere, Belo Horizonte</p>
 
           {/* Os espaços explícitos antes de cada <br /> são necessários: sem
@@ -32,7 +36,9 @@ export function Hero() {
             endereço, com atendimento pensado para cada pessoa que entra pela porta.
           </p>
 
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+          {/* items-start: sem isso o flex-col do mobile estica o botão para
+              a largura toda, o que pesa demais na composição. */}
+          <div className="mt-10 flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:gap-3">
             <a
               href={whatsappHref}
               target="_blank"
@@ -52,16 +58,19 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="relative min-h-[420px] lg:min-h-[680px]">
+        <div className="relative row-start-1 min-h-[44svh] lg:col-start-2 lg:row-start-1 lg:min-h-[680px]">
           <Image
             src="/images/banner/hero-editorial-provisorio.webp"
             alt="Retrato editorial de cabelo longo, imagem provisória de banner da Kasa Beauty"
             fill
             priority
             sizes="(min-width: 1024px) 46vw, 100vw"
-            className="object-cover object-[60%_center]"
+            className="object-cover object-[62%_28%]"
           />
-          {/* Emenda suave com o creme da coluna de texto, para a foto não
+          {/* Mobile: dissolve a base da faixa no creme do texto, para a
+              transição não ser uma linha reta atravessando a tela. */}
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-ivory lg:hidden" />
+          {/* Desktop: emenda lateral com a coluna de texto, para a foto não
               entrar como um retângulo colado ao lado do conteúdo. */}
           <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-32 bg-gradient-to-r from-ivory to-transparent lg:block" />
         </div>
