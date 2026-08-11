@@ -1,51 +1,73 @@
 import Link from "next/link";
+import Image from "next/image";
 import { fullAddress, siteConfig } from "@/lib/site-config";
 import { serviceCategories } from "@/data/services";
 
 export function Footer() {
   return (
-    <footer className="border-t border-stone-dark/60 bg-stone/40">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-3">
-        <div>
-          <p className="font-display text-lg text-charcoal">
-            kasa<span className="text-gold">.</span> beauty
-          </p>
-          <p className="mt-3 max-w-xs text-sm text-charcoal-soft">{siteConfig.tagline}</p>
-        </div>
-
-        <nav aria-label="Serviços">
-          <p className="text-xs font-medium uppercase tracking-widest text-bronze">Serviços</p>
-          <ul className="mt-4 space-y-2 text-sm">
-            {serviceCategories.map((s) => (
-              <li key={s.slug}>
-                <Link href={`/${s.slug}`} className="text-charcoal-soft hover:text-gold">
-                  {s.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        <div>
-          <p className="text-xs font-medium uppercase tracking-widest text-bronze">Visite</p>
-          <address className="mt-4 space-y-1 text-sm not-italic text-charcoal-soft">
-            <p>{fullAddress}</p>
-            <p>
-              <a
-                href={siteConfig.instagramUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-gold"
-              >
-                @{siteConfig.instagramHandle}
-              </a>
+    <footer className="bg-espresso text-ivory">
+      <div className="mx-auto max-w-[1400px] px-5 pt-20 pb-10 sm:px-10 lg:px-16 xl:px-24">
+        <div className="grid gap-12 border-b border-ivory/15 pb-14 md:grid-cols-[1.4fr_1fr_1fr]">
+          <div>
+            <Image
+              src="/brand/kasa-wordmark.png"
+              alt="Kasa Beauty"
+              width={407}
+              height={220}
+              className="h-11 w-auto"
+            />
+            <p className="mt-6 max-w-xs text-sm leading-relaxed text-sand/70">
+              {siteConfig.tagline}
             </p>
-          </address>
-        </div>
-      </div>
+          </div>
 
-      <div className="border-t border-stone-dark/60 px-4 py-5 text-center text-xs text-charcoal-soft sm:px-6">
-        © {new Date().getFullYear()} {siteConfig.name}. Todos os direitos reservados.
+          <nav aria-label="Serviços">
+            <p className="label-eyebrow text-gold">Serviços</p>
+            <ul className="mt-5 space-y-3">
+              {serviceCategories.map((s) => (
+                <li key={s.slug}>
+                  <Link
+                    href={`/${s.slug}`}
+                    className="font-display text-sand transition-colors hover:text-gold-light"
+                  >
+                    {s.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div>
+            <p className="label-eyebrow text-gold">Visite</p>
+            <address className="mt-5 space-y-3 text-sm not-italic leading-relaxed text-sand/70">
+              <p>{fullAddress}</p>
+              <p>
+                <a
+                  href={siteConfig.instagramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-gold-light"
+                >
+                  @{siteConfig.instagramHandle}
+                </a>
+              </p>
+            </address>
+          </div>
+        </div>
+
+        <div className="flex flex-col items-center gap-4 pt-8 sm:flex-row sm:justify-between">
+          <p className="text-xs text-sand/50">
+            © {new Date().getFullYear()} {siteConfig.name}. Todos os direitos reservados.
+          </p>
+          <Image
+            src="/brand/kasa-mandala.png"
+            alt=""
+            width={80}
+            height={80}
+            aria-hidden="true"
+            className="h-8 w-8 opacity-60"
+          />
+        </div>
       </div>
     </footer>
   );

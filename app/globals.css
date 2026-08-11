@@ -10,6 +10,12 @@
   --color-olive: #4b5c41;
   --color-charcoal: #26231d;
   --color-charcoal-soft: #5b5646;
+  /* Faixas escuras e mid-tones quentes: sem elas o site vira um bloco
+     único de creme, que era o que dava aparência de template. */
+  --color-espresso: #191510;
+  --color-espresso-soft: #2a241c;
+  --color-clay: #a08862;
+  --color-sand: #ded3bf;
 }
 
 @theme inline {
@@ -22,9 +28,53 @@
   --color-olive: var(--color-olive);
   --color-charcoal: var(--color-charcoal);
   --color-charcoal-soft: var(--color-charcoal-soft);
+  --color-espresso: var(--color-espresso);
+  --color-espresso-soft: var(--color-espresso-soft);
+  --color-clay: var(--color-clay);
+  --color-sand: var(--color-sand);
 
   --font-display: var(--font-fraunces);
   --font-sans: var(--font-inter);
+}
+
+/* Escala editorial: o título cresce com a viewport em vez de saltar por
+   breakpoint, e a entrelinha fecha conforme o corpo cresce. */
+.text-display {
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 7.5vw, 6.5rem);
+  line-height: 0.94;
+  letter-spacing: -0.025em;
+}
+
+.text-display-sm {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.2vw, 3.25rem);
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+}
+
+.label-eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+}
+
+/* Faixa de serviços em movimento contínuo (padrão das referências).
+   Duplicar a lista no markup é o que permite o loop sem emenda. */
+@keyframes kasa-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: kasa-marquee 38s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
 }
 
 html {

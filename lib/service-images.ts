@@ -15,31 +15,38 @@ export type ServicePhoto = {
  * (Pilar 3/7: nada de imagem genérica fingindo ser o trabalho do salão).
  */
 
-/** Capa 4:3 de cada categoria na grade da home. */
+/** Capa 4:5 de cada categoria na grade da home, recortada para o arco. */
+export const receptionPhoto: ServicePhoto = {
+  src: "/images/recepcao/recepcao-kasa-beauty-parede-logo.webp",
+  alt: "Recepção da Kasa Beauty, com a marca na parede ao fundo e uma cliente na cadeira após finalização do cabelo",
+  width: 720,
+  height: 900,
+};
+
 export const serviceCardPhotos: Record<string, ServicePhoto> = {
   "cabelo-mechas": {
     src: "/images/cabelo/corte-ondulado-salao-kasa-beauty.webp",
     alt: "Cliente da Kasa Beauty de perfil após corte médio com ondas, no salão de parede de pedra",
-    width: 800,
-    height: 600,
+    width: 720,
+    height: 900,
   },
   "sobrancelha-cilios": {
     src: "/images/sobrancelha-cilios/design-sobrancelhas-cliente-maca.webp",
     alt: "Sobrancelhas recém-desenhadas de uma cliente deitada na maca da Kasa Beauty",
-    width: 800,
-    height: 600,
+    width: 720,
+    height: 900,
   },
   "unhas-spa": {
     src: "/images/unhas/esmaltacao-rosa-maos-cliente.webp",
     alt: "Mãos de cliente com esmaltação rosa em unhas curtas quadradas, feita na Kasa Beauty",
-    width: 800,
-    height: 600,
+    width: 720,
+    height: 900,
   },
   "massagem-estetica": {
     src: "/images/estetica/hidragloss-labios-resultado.webp",
     alt: "Resultado de hidragloss labial: lábios hidratados e com brilho após o procedimento de estética facial",
-    width: 800,
-    height: 600,
+    width: 720,
+    height: 900,
   },
 };
 

@@ -4,36 +4,53 @@ import { PlaceholderImage } from "./PlaceholderImage";
 import { serviceCardPhotos } from "@/lib/service-images";
 import type { ServiceCategory } from "@/data/services";
 
-export function ServiceCard({ service }: { service: ServiceCategory }) {
+/**
+ * Card sem caixa: a foto em arco é o objeto, o texto vem solto embaixo.
+ * A borda arredondada em volta de tudo era o que fazia as quatro
+ * categorias lerem como componentes de biblioteca, e não como um índice
+ * editorial.
+ */
+export function ServiceCard({
+  service,
+  index,
+}: {
+  service: ServiceCategory;
+  index: number;
+}) {
   const photo = serviceCardPhotos[service.slug];
 
   return (
-    <Link
-      href={`/${service.slug}`}
-      className="group block overflow-hidden rounded-2xl border border-stone-dark/70 bg-ivory transition-shadow hover:shadow-[0_10px_30px_rgba(38,35,29,0.10)]"
-    >
-      {photo ? (
-        <Image
-          src={photo.src}
-          alt={photo.alt}
-          width={photo.width}
-          height={photo.height}
-          sizes="(min-width: 1024px) 264px, (min-width: 640px) 50vw, 100vw"
-          className="aspect-4/3 w-full object-cover"
-        />
-      ) : (
-        <PlaceholderImage label={`Foto de ${service.label}`} aspect="landscape" className="rounded-none rounded-t-2xl border-0" />
-      )}
-      <div className="p-5">
-        <h3 className="font-display text-lg text-charcoal">{service.label}</h3>
-        <p className="mt-1 text-sm text-charcoal-soft">{service.heroLine}</p>
-        <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-gold group-hover:gap-2 transition-all">
-          Ver detalhes
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M5 12H19M13 6L19 12L13 18" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </span>
+    <Link href={`/${service.slug}`} className="group block">
+      {/* Arco contido, não semicírculo: o raio cheio comia o topo da
+          cabeça das clientes nas fotos mais fechadas. */}
+      <div className="relative overflow-hidden rounded-t-[90px] bg-stone/60 lg:rounded-t-[120px]">
+        {photo ? (
+          <Image
+            src={photo.src}
+            alt={photo.alt}
+            width={photo.width}
+            height={photo.height}
+            sizes="(min-width: 1024px) 26vw, (min-width: 640px) 45vw, 90vw"
+            className="aspect-4/5 w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+          />
+        ) : (
+          <PlaceholderImage
+            label={`Foto de ${service.label}`}
+            aspect="portrait"
+            className="rounded-none border-0"
+          />
+        )}
       </div>
+
+      <div className="mt-5 flex items-baseline gap-3">
+        <span className="font-display text-sm text-gold">
+          {String(index + 1).padStart(2, "0")}
+        </span>
+        <h3 className="font-display text-xl text-charcoal transition-colors group-hover:text-bronze">
+          {service.label}
+        </h3>
+      </div>
+      <p className="mt-2 text-sm leading-relaxed text-charcoal-soft">{service.heroLine}</p>
     </Link>
   );
 }

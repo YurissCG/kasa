@@ -10,14 +10,19 @@ test.describe("Home", () => {
     );
 
     // Escopo no <main>: o botão flutuante do WhatsApp tem o mesmo nome
-    // acessível e vive fora dele, no layout.
-    const cta = page.getByRole("main").getByRole("link", { name: "Agendar pelo WhatsApp" });
-    await expect(cta).toBeVisible();
-    const href = await cta.getAttribute("href");
-    expect(href).toContain(`wa.me/${siteConfig.whatsappNumber}`);
-    expect(href).toContain("text=");
-    // A mensagem tem que estar de fato URI-encoded, não crua.
-    expect(href).not.toContain(" ");
+    // acessível e vive fora dele, no layout. A home repete o CTA no hero
+    // e na seção de localização, então valida todos: um deles com o
+    // número errado passaria despercebido.
+    const ctas = page.getByRole("main").getByRole("link", { name: "Agendar pelo WhatsApp" });
+    await expect(ctas.first()).toBeVisible();
+    const hrefs = await ctas.evaluateAll((els) => els.map((el) => el.getAttribute("href")));
+    expect(hrefs.length).toBeGreaterThan(0);
+    for (const href of hrefs) {
+      expect(href).toContain(`wa.me/${siteConfig.whatsappNumber}`);
+      expect(href).toContain("text=");
+      // A mensagem tem que estar de fato URI-encoded, não crua.
+      expect(href).not.toContain(" ");
+    }
   });
 
   test("todos os cards de serviço levam para a página certa", async ({ page }) => {

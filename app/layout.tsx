@@ -10,6 +10,9 @@ const fraunces = Fraunces({
   variable: "--font-fraunces",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
+  // O itálico carrega as palavras de destaque, como nas referências
+  // ("the art of hair", "simplicity"), sem precisar de uma terceira fonte.
+  style: ["normal", "italic"],
 });
 
 const inter = Inter({
