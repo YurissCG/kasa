@@ -3,8 +3,12 @@ import { buildWhatsAppLink, defaultBookingMessage } from "@/lib/whatsapp";
 
 /**
  * Hero em duas colunas com a foto sangrando até a borda direita.
- * O texto ocupa o espaço negativo da imagem, que é o motivo de a foto
- * ter sido escolhida com a modelo deslocada para um dos lados.
+ *
+ * A foto é a recepção real da Kasa Beauty, com a placa "kasa. BEAUTY" na
+ * parede — recortada para excluir a cliente em primeiro plano, cuja capa
+ * traz o monograma de outra profissional (Layse Barcellos, não a Kasa),
+ * visível no arquivo original. Sobra só o cabelo dela desfocado como
+ * textura de borda, sem rosto e sem a capa. Ver commit para o porquê.
  */
 export function Hero() {
   const whatsappHref = buildWhatsAppLink(defaultBookingMessage());
@@ -60,12 +64,12 @@ export function Hero() {
 
         <div className="relative row-start-1 min-h-[44svh] lg:col-start-2 lg:row-start-1 lg:min-h-[680px]">
           <Image
-            src="/images/banner/hero-editorial-provisorio.webp"
-            alt="Retrato editorial de cabelo longo, imagem provisória de banner da Kasa Beauty"
+            src="/images/recepcao/parede-kasa-beauty-identidade-visual.webp"
+            alt="Recepção da Kasa Beauty, com a marca kasa. BEAUTY na parede"
             fill
             priority
             sizes="(min-width: 1024px) 46vw, 100vw"
-            className="object-cover object-[62%_28%]"
+            className="object-cover object-[78%_46%]"
           />
           {/* Mobile: dissolve a base da faixa no creme do texto, para a
               transição não ser uma linha reta atravessando a tela. */}

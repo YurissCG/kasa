@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { receptionPhoto } from "@/lib/service-images";
+import { manifestoPhoto } from "@/lib/service-images";
 
 const pillars = [
   {
@@ -22,10 +22,7 @@ const pillars = [
  * seções pesam igual.
  */
 export function ManifestoSection() {
-  // A recepção real, com a marca na parede, é a foto que sustenta esta
-  // seção. O banner do topo é provisório e de banco de imagem, então aqui
-  // é onde o salão de verdade aparece.
-  const photo = receptionPhoto;
+  const photo = manifestoPhoto;
 
   return (
     <section className="bg-espresso py-20 text-ivory sm:py-28">

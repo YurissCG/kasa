@@ -15,10 +15,19 @@ export type ServicePhoto = {
  * (Pilar 3/7: nada de imagem genérica fingindo ser o trabalho do salão).
  */
 
-/** Capa 4:5 de cada categoria na grade da home, recortada para o arco. */
-export const receptionPhoto: ServicePhoto = {
-  src: "/images/recepcao/recepcao-kasa-beauty-parede-logo.webp",
-  alt: "Recepção da Kasa Beauty, com a marca na parede ao fundo e uma cliente na cadeira após finalização do cabelo",
+/**
+ * Foto real de ambiente para a seção "Por que a Kasa" (arco, 4:5).
+ *
+ * Não é a recepção com a placa "kasa. BEAUTY": naquela foto, a cliente em
+ * primeiro plano veste a capa de outra profissional (Layse Barcellos, cujos
+ * arquivos vieram misturados no mesmo lote do Instagram) — descoberto ao
+ * ampliar a imagem e ler o monograma. Usar teria atribuído à Kasa Beauty
+ * uma peça com a marca de outro negócio. Esta foto (ajuste de franja, mãos
+ * no trabalho) foi conferida em zoom e não tem nenhuma marca de terceiro.
+ */
+export const manifestoPhoto: ServicePhoto = {
+  src: "/images/cabelo/ajuste-franja-cliente-kasa-beauty.webp",
+  alt: "Profissional ajustando a franja de uma cliente no salão da Kasa Beauty",
   width: 720,
   height: 900,
 };
