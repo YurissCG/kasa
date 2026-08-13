@@ -6,7 +6,9 @@
   --color-stone-dark: #cfc3a3;
   --color-gold: #c9a227;
   --color-gold-light: #e0be5c;
-  --color-bronze: #8a6d2f;
+  /* #8a6d2f dava 4.4:1 no ivory e 4.0:1 no stone/50 (WCAG AA pede 4.5:1
+     pra texto pequeno); este tom passa nos dois com folga. */
+  --color-bronze: #7c622a;
   --color-olive: #4b5c41;
   --color-charcoal: #26231d;
   --color-charcoal-soft: #5b5646;

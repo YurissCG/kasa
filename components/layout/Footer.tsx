@@ -56,7 +56,8 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col items-center gap-4 pt-8 sm:flex-row sm:justify-between">
-          <p className="text-xs text-sand/50">
+          {/* sand/50 dava 3.9:1 no espresso (WCAG AA pede 4.5:1); /60 passa. */}
+          <p className="text-xs text-sand/60">
             © {new Date().getFullYear()} {siteConfig.name}. Todos os direitos reservados.
           </p>
           <Image

@@ -31,7 +31,7 @@ export function Hero() {
             <br />
             que a sua{" "}
             <br />
-            <em className="font-normal italic text-gold">autoestima</em> merece.
+            <em className="font-normal italic text-bronze">autoestima</em> merece.
           </h1>
 
           <p className="mt-8 max-w-md text-base leading-relaxed text-charcoal-soft">

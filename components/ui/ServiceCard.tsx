@@ -43,7 +43,7 @@ export function ServiceCard({
       </div>
 
       <div className="mt-5 flex items-baseline gap-3">
-        <span className="font-display text-sm text-gold">
+        <span className="font-display text-sm text-bronze">
           {String(index + 1).padStart(2, "0")}
         </span>
         <h3 className="font-display text-xl text-charcoal transition-colors group-hover:text-bronze">

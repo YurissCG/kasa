@@ -10,18 +10,41 @@ import { buildWhatsAppLink, defaultBookingMessage } from "@/lib/whatsapp";
  * trilha do Reels original não tem licença confirmada para uso fora do
  * Instagram, e silencioso é o padrão seguro para autoplay em qualquer
  * navegador.
+ *
+ * A seção fica bem abaixo da dobra, mas um <video autoPlay> começa a
+ * baixar o arquivo assim que entra no DOM, não quando fica visível — os
+ * 1,15 MB competiam com a foto do Hero por banda em conexão lenta e o
+ * LCP saltava de ~1s pra 4,7s no Lighthouse mobile. Carrega e toca só
+ * quando a seção se aproxima da viewport.
  */
 export function VideoSection() {
   const whatsappHref = buildWhatsAppLink(defaultBookingMessage());
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    // O autoplay do <video> não é pego pelo prefers-reduced-motion do CSS
-    // (não é uma animação). Quem pediu menos movimento ao sistema operacional
-    // recebe o pôster parado, com os controles nativos para tocar na mão.
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      videoRef.current?.pause();
-    }
+    const video = videoRef.current;
+    if (!video) return;
+
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        video.src = videoTour.src;
+        video.load();
+        if (!reducedMotion) {
+          video.play().catch(() => {
+            // Autoplay pode falhar por política do navegador; os controles
+            // nativos seguem disponíveis pra tocar na mão.
+          });
+        }
+        observer.disconnect();
+      },
+      { rootMargin: "400px" }
+    );
+
+    observer.observe(video);
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -33,9 +56,8 @@ export function VideoSection() {
               <video
                 ref={videoRef}
                 className="aspect-[9/16] w-full object-cover"
-                src={videoTour.src}
                 poster={videoTour.poster}
-                autoPlay
+                preload="none"
                 muted
                 loop
                 playsInline
