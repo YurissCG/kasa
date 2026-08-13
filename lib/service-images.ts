@@ -16,20 +16,63 @@ export type ServicePhoto = {
  */
 
 /**
- * Foto real de ambiente para a seção "Por que a Kasa" (arco, 4:5).
+ * Foto real de atendimento para a seção "Por que a Kasa" (arco, 4:5).
  *
- * Não é a recepção com a placa "kasa. BEAUTY": naquela foto, a cliente em
- * primeiro plano veste a capa de outra profissional (Layse Barcellos, cujos
- * arquivos vieram misturados no mesmo lote do Instagram) — descoberto ao
- * ampliar a imagem e ler o monograma. Usar teria atribuído à Kasa Beauty
- * uma peça com a marca de outro negócio. Esta foto (ajuste de franja, mãos
- * no trabalho) foi conferida em zoom e não tem nenhuma marca de terceiro.
+ * Frame extraído do vídeo de tour (ver videoTour, abaixo): design de
+ * sobrancelha em andamento, com máscara de proteção. Reforça o pilar de
+ * biossegurança ao lado do texto, não só ilustra.
  */
 export const manifestoPhoto: ServicePhoto = {
-  src: "/images/cabelo/ajuste-franja-cliente-kasa-beauty.webp",
-  alt: "Profissional ajustando a franja de uma cliente no salão da Kasa Beauty",
+  src: "/images/sobrancelha-cilios/design-sobrancelha-tecnica-mao-livre.webp",
+  alt: "Profissional da Kasa Beauty, de máscara, fazendo design de sobrancelha em uma cliente",
   width: 720,
   height: 900,
+};
+
+/** Fotos reais do espaço físico da Kasa Beauty, para a galeria "Conheça o espaço". */
+export const spacePhotos: ServicePhoto[] = [
+  {
+    src: "/images/espaco/estacoes-espelho-arco-parede-branca.webp",
+    alt: "Estações de trabalho da Kasa Beauty, com espelhos ovais sobre parede de tijolo branco",
+    width: 750,
+    height: 1000,
+  },
+  {
+    src: "/images/espaco/ambiente-lavatorio-coluna-pedra.webp",
+    alt: "Sala de lavagem da Kasa Beauty, com colunas de pedra e vista para o jardim",
+    width: 750,
+    height: 1000,
+  },
+  {
+    src: "/images/espaco/prateleira-produtos-janela-jardim.webp",
+    alt: "Prateleira de produtos e poltrona de atendimento da Kasa Beauty, com vista para o jardim",
+    width: 750,
+    height: 1000,
+  },
+  {
+    src: "/images/espaco/entrada-placa-kasa-beauty-lanterna.webp",
+    alt: "Entrada da Kasa Beauty, com a placa redonda na parede de pedra",
+    width: 750,
+    height: 1000,
+  },
+  {
+    src: "/images/espaco/sala-espera-poltrona-orquidea.webp",
+    alt: "Sala de espera da Kasa Beauty, com poltrona estofada e orquídea",
+    width: 750,
+    height: 1000,
+  },
+];
+
+/**
+ * Recorte de ~16s de um vídeo real de visita à Kasa Beauty (fachada,
+ * ambiente e um atendimento de sobrancelha), sem áudio: a trilha original
+ * do Reels não tem licença confirmada para uso fora do Instagram.
+ */
+export const videoTour = {
+  src: "/video/tour-kasa-beauty.mp4",
+  poster: "/video/tour-poster.webp",
+  width: 540,
+  height: 960,
 };
 
 export const serviceCardPhotos: Record<string, ServicePhoto> = {

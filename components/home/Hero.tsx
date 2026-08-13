@@ -4,11 +4,10 @@ import { buildWhatsAppLink, defaultBookingMessage } from "@/lib/whatsapp";
 /**
  * Hero em duas colunas com a foto sangrando até a borda direita.
  *
- * A foto é a recepção real da Kasa Beauty, com a placa "kasa. BEAUTY" na
- * parede — recortada para excluir a cliente em primeiro plano, cuja capa
- * traz o monograma de outra profissional (Layse Barcellos, não a Kasa),
- * visível no arquivo original. Sobra só o cabelo dela desfocado como
- * textura de borda, sem rosto e sem a capa. Ver commit para o porquê.
+ * A foto é a fachada real da Kasa Beauty: placa redonda na parede de
+ * pedra, sob as folhas de estrelítzia. Foto em alta resolução, sem
+ * cliente em quadro, então não tem o risco de marca de terceiro que
+ * derrubou as duas fotos de recepção usadas antes aqui (ver histórico).
  */
 export function Hero() {
   const whatsappHref = buildWhatsAppLink(defaultBookingMessage());
@@ -64,12 +63,12 @@ export function Hero() {
 
         <div className="relative row-start-1 min-h-[44svh] lg:col-start-2 lg:row-start-1 lg:min-h-[680px]">
           <Image
-            src="/images/recepcao/parede-kasa-beauty-identidade-visual.webp"
-            alt="Recepção da Kasa Beauty, com a marca kasa. BEAUTY na parede"
+            src="/images/recepcao/fachada-kasa-beauty-parede-pedra.webp"
+            alt="Fachada da Kasa Beauty: placa redonda com o logo na parede de pedra, na Rua Professor Carlos Pereira da Silva"
             fill
             priority
             sizes="(min-width: 1024px) 46vw, 100vw"
-            className="object-cover object-[78%_46%]"
+            className="object-cover object-[62%_50%]"
           />
           {/* Mobile: dissolve a base da faixa no creme do texto, para a
               transição não ser uma linha reta atravessando a tela. */}
