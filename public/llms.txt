@@ -1,0 +1,28 @@
+# Kasa Beauty
+
+> Salão de beleza no Belvedere, Belo Horizonte (MG). Cabelo & Mechas,
+> Sobrancelha & Cílios, Unhas & Spa, Massagem & Estética. Atendimento
+> individual, com avaliação antes de qualquer procedimento.
+
+Endereço: Rua Professor Carlos Pereira da Silva, 579 - Belvedere, Belo
+Horizonte - MG.
+Instagram: https://www.instagram.com/meirealmeidaclinic
+
+## Páginas
+
+- [Início](/): apresentação da Kasa Beauty, as quatro frentes de
+  atendimento, vídeo real do espaço e localização.
+- [Cabelo & Mechas](/cabelo-mechas): coloração, cortes e transformações
+  capilares.
+- [Sobrancelha & Cílios](/sobrancelha-cilios): design, micropigmentação,
+  lash lift e brow lamination.
+- [Unhas & Spa](/unhas-spa): manicure, pedicure e nail design.
+- [Massagem & Estética](/massagem-estetica): tratamentos faciais,
+  corporais e massagens.
+- [Contato](/contato): WhatsApp e localização.
+
+## Observação
+
+Este arquivo é informativo, não um mecanismo de indexação: motores de
+busca (Google incluído) não usam llms.txt para ranqueamento. Ele existe
+para dar contexto direto a agentes de IA que naveguem o site.

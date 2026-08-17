@@ -4,7 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppFloatingButton } from "@/components/layout/WhatsAppFloatingButton";
-import { siteConfig } from "@/lib/site-config";
+import { siteConfig, siteKeywords, siteUrl } from "@/lib/site-config";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -21,8 +21,6 @@ const inter = Inter({
   weight: ["400", "500"],
 });
 
-const siteUrl = "https://kasabeauty.vercel.app"; // trocar pelo domínio real ao publicar
-
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
@@ -30,6 +28,14 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.tagline,
+  keywords: siteKeywords,
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
     title: siteConfig.name,
     description: siteConfig.tagline,

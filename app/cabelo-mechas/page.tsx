@@ -10,6 +10,7 @@ export function generateMetadata(): Metadata {
   return {
     title: service?.label ?? "Serviço",
     description: service?.intro,
+    keywords: service ? [service.label, ...service.items.map((i) => i.name)] : undefined,
   };
 }
 
