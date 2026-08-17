@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { LazyLoopVideo } from "@/components/ui/LazyLoopVideo";
-import { videoTour } from "@/lib/service-images";
+import { videoManifesto } from "@/lib/service-images";
 
 const pillars = [
   {
@@ -24,7 +24,9 @@ const pillars = [
  *
  * O vídeo no lugar de uma foto estática, no mesmo recorte em arco das
  * outras seções, é pedido explícito da dona: mesmo tratamento de
- * autoplay em loop do VideoSection, via LazyLoopVideo.
+ * autoplay em loop do VideoSection, via LazyLoopVideo. Usa videoManifesto,
+ * não videoTour: a cliente não gostou do mesmo vídeo repetido duas vezes
+ * na página, então esta seção tem um vídeo próprio.
  */
 export function ManifestoSection() {
   return (
@@ -33,10 +35,10 @@ export function ManifestoSection() {
         <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-20">
           <div className="relative mx-auto w-full max-w-sm lg:max-w-none">
             <LazyLoopVideo
-              src={videoTour.src}
-              poster={videoTour.poster}
+              src={videoManifesto.src}
+              poster={videoManifesto.poster}
               className="aspect-4/5 w-full rounded-t-[140px] object-cover lg:rounded-t-[180px]"
-              aria-label="Vídeo de uma visita à Kasa Beauty: fachada, ambiente e um atendimento de sobrancelha"
+              aria-label="Vídeo de duas profissionais da Kasa Beauty lavando o cabelo de uma cliente"
             />
             <Image
               src="/brand/kasa-mandala.png"

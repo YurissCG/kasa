@@ -61,6 +61,19 @@ export const videoTour = {
   height: 960,
 };
 
+/**
+ * Vídeo diferente do videoTour, exclusivo da seção "Por que a Kasa":
+ * cliente pediu a troca depois de ver o mesmo vídeo duas vezes na página.
+ * Recorte de 14s, sem áudio, duas profissionais lavando o cabelo da
+ * cliente na sala de lavatório.
+ */
+export const videoManifesto = {
+  src: "/video/manifesto-lavagem-kasa-beauty.mp4",
+  poster: "/video/manifesto-poster.webp",
+  width: 540,
+  height: 720,
+};
+
 export const serviceCardPhotos: Record<string, ServicePhoto> = {
   "cabelo-mechas": {
     src: "/images/cabelo/balayage-loiro-recepcao-kasa-beauty.webp",
