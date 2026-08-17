@@ -63,10 +63,10 @@ export const videoTour = {
 
 export const serviceCardPhotos: Record<string, ServicePhoto> = {
   "cabelo-mechas": {
-    src: "/images/cabelo/corte-ondulado-salao-kasa-beauty.webp",
-    alt: "Cliente da Kasa Beauty de perfil após corte médio com ondas, no salão de parede de pedra",
-    width: 720,
-    height: 900,
+    src: "/images/cabelo/balayage-loiro-recepcao-kasa-beauty.webp",
+    alt: "Cliente com balayage loiro na recepção da Kasa Beauty, com a placa da marca ao fundo",
+    width: 1056,
+    height: 1320,
   },
   "sobrancelha-cilios": {
     src: "/images/sobrancelha-cilios/design-sobrancelhas-cliente-maca.webp",
