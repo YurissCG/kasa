@@ -1,6 +1,4 @@
-"use client";
-
-import { useEffect, useRef } from "react";
+import { LazyLoopVideo } from "@/components/ui/LazyLoopVideo";
 import { videoTour } from "@/lib/service-images";
 import { buildWhatsAppLink, defaultBookingMessage } from "@/lib/whatsapp";
 
@@ -10,42 +8,9 @@ import { buildWhatsAppLink, defaultBookingMessage } from "@/lib/whatsapp";
  * trilha do Reels original não tem licença confirmada para uso fora do
  * Instagram, e silencioso é o padrão seguro para autoplay em qualquer
  * navegador.
- *
- * A seção fica bem abaixo da dobra, mas um <video autoPlay> começa a
- * baixar o arquivo assim que entra no DOM, não quando fica visível — os
- * 1,15 MB competiam com a foto do Hero por banda em conexão lenta e o
- * LCP saltava de ~1s pra 4,7s no Lighthouse mobile. Carrega e toca só
- * quando a seção se aproxima da viewport.
  */
 export function VideoSection() {
   const whatsappHref = buildWhatsAppLink(defaultBookingMessage());
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) return;
-        video.src = videoTour.src;
-        video.load();
-        if (!reducedMotion) {
-          video.play().catch(() => {
-            // Autoplay pode falhar por política do navegador; os controles
-            // nativos seguem disponíveis pra tocar na mão.
-          });
-        }
-        observer.disconnect();
-      },
-      { rootMargin: "400px" }
-    );
-
-    observer.observe(video);
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <section className="bg-stone/50 py-20 sm:py-28">
@@ -53,15 +18,10 @@ export function VideoSection() {
         <div className="grid items-center gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
           <div className="mx-auto w-full max-w-[300px]">
             <div className="relative overflow-hidden rounded-[2.5rem] border-[6px] border-charcoal bg-charcoal shadow-[0_24px_60px_rgba(38,35,29,0.22)]">
-              <video
-                ref={videoRef}
-                className="aspect-[9/16] w-full object-cover"
+              <LazyLoopVideo
+                src={videoTour.src}
                 poster={videoTour.poster}
-                preload="none"
-                muted
-                loop
-                playsInline
-                controls
+                className="aspect-[9/16] w-full object-cover"
                 aria-label="Vídeo de uma visita à Kasa Beauty: fachada, ambiente e um atendimento de sobrancelha"
               />
             </div>

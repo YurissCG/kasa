@@ -15,20 +15,6 @@ export type ServicePhoto = {
  * (Pilar 3/7: nada de imagem genérica fingindo ser o trabalho do salão).
  */
 
-/**
- * Foto real de atendimento para a seção "Por que a Kasa" (arco, 4:5).
- *
- * Frame extraído do vídeo de tour (ver videoTour, abaixo): design de
- * sobrancelha em andamento, com máscara de proteção. Reforça o pilar de
- * biossegurança ao lado do texto, não só ilustra.
- */
-export const manifestoPhoto: ServicePhoto = {
-  src: "/images/sobrancelha-cilios/design-sobrancelha-tecnica-mao-livre.webp",
-  alt: "Profissional da Kasa Beauty, de máscara, fazendo design de sobrancelha em uma cliente",
-  width: 720,
-  height: 900,
-};
-
 /** Fotos reais do espaço físico da Kasa Beauty, para a galeria "Conheça o espaço". */
 export const spacePhotos: ServicePhoto[] = [
   {
@@ -89,10 +75,10 @@ export const serviceCardPhotos: Record<string, ServicePhoto> = {
     height: 900,
   },
   "unhas-spa": {
-    src: "/images/unhas/esmaltacao-rosa-maos-cliente.webp",
-    alt: "Mãos de cliente com esmaltação rosa em unhas curtas quadradas, feita na Kasa Beauty",
-    width: 720,
-    height: 900,
+    src: "/images/unhas/maos-aneis-fachada-kasa-beauty.webp",
+    alt: "Mãos com anéis apoiadas na fachada da Kasa Beauty, unhas em esmaltação nude",
+    width: 1200,
+    height: 1600,
   },
   "massagem-estetica": {
     src: "/images/estetica/hidragloss-labios-resultado.webp",

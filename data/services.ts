@@ -19,9 +19,9 @@ export const serviceCategories: ServiceCategory[] = [
     slug: "cabelo-mechas",
     label: "Cabelo & Mechas",
     shortLabel: "Cabelo",
-    heroLine: "Cor, corte e textura tratados como projeto, não como padrão de prateleira.",
+    heroLine: "Coloração, cortes e transformações capilares.",
     intro:
-      "Do corte estrutural às mechas de iluminação, cada atendimento parte do fio que você tem hoje, não de uma referência genérica de rede social.",
+      "Projetados de forma personalizada para valorizar sua beleza, respeitando a identidade e a essência de cada cliente.",
     items: [
       { name: "Corte e finalização", description: "Corte técnico com finalização pensada para o seu dia a dia, não só para o dia do salão." },
       { name: "Mechas e iluminação", description: "Técnicas de mechas personalizadas para o tom de pele e a raiz natural." },
@@ -33,9 +33,9 @@ export const serviceCategories: ServiceCategory[] = [
     slug: "sobrancelha-cilios",
     label: "Sobrancelha & Cílios",
     shortLabel: "Sobrancelha & Cílios",
-    heroLine: "Micropigmentação, design e extensão de cílios com avaliação individual antes de qualquer procedimento.",
+    heroLine: "Realce do olhar com precisão e delicadeza.",
     intro:
-      "Sobrancelha e olhar pedem precisão, por isso todo procedimento começa com uma avaliação do formato do rosto e do fio natural.",
+      "Design, micropigmentação, lash lift e brow lamination realizados sob uma análise individual, respeitando a harmonia e a naturalidade de cada rosto.",
     items: [
       { name: "Micropigmentação de sobrancelhas", description: "Técnica fio a fio ou sombreada, definida na avaliação." },
       { name: "Design de sobrancelhas", description: "Correção e manutenção do formato natural." },
@@ -47,9 +47,9 @@ export const serviceCategories: ServiceCategory[] = [
     slug: "unhas-spa",
     label: "Unhas & Spa",
     shortLabel: "Unhas",
-    heroLine: "Manicure, pedicure e nail design com o mesmo padrão de acabamento do resto da clínica.",
+    heroLine: "Beleza, cuidado e sofisticação em cada detalhe.",
     intro:
-      "Unhas bem cuidadas fazem parte da mesma experiência de excelência: biossegurança, materiais individuais e acabamento revisado.",
+      "Manicure, pedicure e nail design com acabamento impecável, aliados a uma experiência de cuidado e bem-estar.",
     items: [
       { name: "Manicure e pedicure", description: "Cuidado completo com esterilização de material entre atendimentos." },
       { name: "Nail design", description: "Esmaltação em gel e decoração sob demanda." },
@@ -60,9 +60,9 @@ export const serviceCategories: ServiceCategory[] = [
     slug: "massagem-estetica",
     label: "Massagem & Estética",
     shortLabel: "Estética",
-    heroLine: "Estética facial e corporal, e massagem, com avaliação antes de indicar qualquer protocolo.",
+    heroLine: "Cuidado que envolve beleza, equilíbrio e bem-estar.",
     intro:
-      "Cada protocolo de estética é indicado depois de uma conversa sobre objetivo e histórico. Não existe procedimento padrão para todo mundo.",
+      "Tratamentos faciais, corporais e massagens personalizados a partir das necessidades e objetivos de cada cliente.",
     items: [
       { name: "Estética facial", description: "Protocolos definidos após avaliação de pele." },
       { name: "Estética corporal", description: "Procedimentos indicados conforme objetivo e histórico." },
