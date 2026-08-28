@@ -45,37 +45,22 @@ function Stars({ rating }: { rating: number }) {
  * vez de borda em volta — a caixa fechada é o que dava cara de template
  * nas outras seções.
  *
- * Os dados vêm de data/testimonials.ts. ATENÇÃO: enquanto
- * `testimonialsArePlaceholder` for true naquele arquivo, os depoimentos
- * e a nota são de exemplo. O aviso visível foi removido a pedido para o
- * cliente revisar o layout num deploy de PREVIEW — esta branch não pode
- * ir para produção antes de trocar pelos dados reais (ver README,
- * "checklist de conteúdo real").
+ * Os dados vêm de data/testimonials.ts — avaliações reais do Google do
+ * salão da Meire, texto e nome iguais aos do Google. O cabeçalho não
+ * mostra nota média porque os dois perfis do Google ainda não foram
+ * unificados; quando houver um número oficial, preencher
+ * `googleProfile.rating` / `.count` (ver comentário no data/).
  */
 export function TestimonialsSection() {
   return (
     <section id="depoimentos" className="bg-ivory py-20 sm:py-28">
       <div className="mx-auto max-w-[1400px] px-5 sm:px-10 lg:px-16 xl:px-24">
-        <div className="flex flex-col gap-6 border-b border-stone-dark/60 pb-8 sm:flex-row sm:items-end sm:justify-between">
-          <div className="max-w-xl">
-            <p className="label-eyebrow text-bronze">Depoimentos</p>
-            <h2 className="text-display-sm mt-5 text-charcoal">
-              Quem passou pela Kasa,{" "}
-              <em className="font-normal italic text-bronze">conta como foi</em>.
-            </h2>
-          </div>
-
-          <div className="shrink-0">
-            <div className="flex items-center gap-2.5">
-              <Stars rating={googleProfile.rating} />
-              <span className="font-display text-lg text-charcoal">
-                {formatRating(googleProfile.rating)}
-              </span>
-            </div>
-            <p className="mt-1 text-sm text-charcoal-soft">
-              {googleProfile.count} avaliações no Google
-            </p>
-          </div>
+        <div className="max-w-xl border-b border-stone-dark/60 pb-8">
+          <p className="label-eyebrow text-bronze">Depoimentos</p>
+          <h2 className="text-display-sm mt-5 text-charcoal">
+            Quem passou pela Kasa,{" "}
+            <em className="font-normal italic text-bronze">conta como foi</em>.
+          </h2>
         </div>
 
         <ul className="mt-12 grid gap-x-6 gap-y-8 sm:mt-14 sm:grid-cols-2 lg:grid-cols-3">
